@@ -1,33 +1,53 @@
-// ==================================
-// Video Data (Testing ke liye chalne wali dummy videos)
-// ==================================
-const videos = [
-    {
-        id: 1,
-        title: "Cinematic Travel Vlog: The Ultimate Journey",
-        thumbnail: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=500&q=60",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
-        duration: "12:45",
-        views: "1.2K Views",
-        uploaded: "today"
-    },
-    {
-        id: 2,
-        title: "Future of EV Motors & Global Market",
-        thumbnail: "https://images.unsplash.com/photo-1593941707882-a5bba14938cb?auto=format&fit=crop&w=500&q=60",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
-        duration: "08:30",
-        views: "3.5K Views",
-        uploaded: "2 days ago"
-    },
-    {
-        id: 3,
-        title: "Mastering AI Video Production Prompts",
-        thumbnail: "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?auto=format&fit=crop&w=500&q=60",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4", 
-        duration: "15:20",
-        views: "850 Views",
-        uploaded: "1 week ago"
-    }
-];
-        
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealX - Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Header -->
+    <header class="navbar">
+        <div class="left-nav">
+            <button id="menu-btn" class="icon-btn">☰</button>
+            <a href="index.html" class="logo">RealX</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search videos...">
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="#">📁 Category</a>
+    </div>
+
+    <!-- Main Player Area -->
+    <main class="player-container">
+        <!-- Video Chalne Wali Jagah (Height 500px set hai) -->
+        <div class="video-section">
+            <video id="main-player" controls autoplay>
+                <source src="" type="video/mp4">
+            </video>
+            <h2 id="video-title">Loading...</h2>
+            <p id="video-stats">Loading details...</p>
+        </div>
+
+        <!-- HR Line -->
+        <hr class="divider">
+
+        <!-- Niche Up Next Videos -->
+        <div class="recommendations-section">
+            <h3>Up Next</h3>
+            <div id="recommendations-list" class="r-list">
+                <!-- Javascript se baaki videos yahan aayengi -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
