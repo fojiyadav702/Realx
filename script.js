@@ -1,4 +1,16 @@
-// 1. Sidebar Menu Button ka Code
+// 1. Aapka Asli Data (Koyi fake video nahi)
+const videos = [
+    {
+        id: 1,
+        title: "My First Original Video",
+        thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60", // Thumbnail image
+        videoUrl: "https://drive.google.com/uc?export=download&id=1e8Y2Cwky3FIoOsPPFcSkmp1Wjg7Bokrd", // Aapka Drive Link
+        views: "1 View",
+        uploaded: "Just now"
+    }
+];
+
+// 2. Sidebar Open/Close Code
 const menuBtn = document.getElementById('menu-btn');
 const sidebar = document.getElementById('sidebar');
 
@@ -12,42 +24,18 @@ if (menuBtn && sidebar) {
     });
 }
 
-// 2. Videos ka Data
-const videos = [
-    {
-        id: 1,
-        title: "My First Video (Drive Link)",
-        thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60",
-        videoUrl: "https://drive.google.com/uc?export=download&id=1e8Y2Cwky3FIoOsPPFcSkmp1Wjg7Bokrd",
-        views: "100 Views",
-        uploaded: "Just now"
-    },
-    {
-        id: 2,
-        title: "EV Motors Update",
-        thumbnail: "https://images.unsplash.com/photo-1593941707882-a5bba14938cb?auto=format&fit=crop&w=500&q=60",
-        videoUrl: "https://www.w3schools.com/html/mov_bbb.mp4",
-        views: "3.5K Views",
-        uploaded: "2 days ago"
-    }
-];
-
-// 3. Videos ko Grid mein lagane ka Code
+// 3. Home Page Video Grid System
 const videoGrid = document.getElementById('video-grid');
 
 if (videoGrid) {
+    videoGrid.innerHTML = ''; // Purana kachra saaf
     videos.forEach(video => {
         const card = document.createElement('div');
         card.className = 'video-card';
-        
-        card.onclick = () => {
-            window.location.href = `video.html?id=${video.id}`;
-        };
+        card.onclick = () => { window.location.href = `video.html?id=${video.id}`; };
 
         card.innerHTML = `
-            <div class="thumbnail">
-                <img src="${video.thumbnail}" alt="Thumbnail">
-            </div>
+            <div class="thumbnail"><img src="${video.thumbnail}" alt="Thumbnail"></div>
             <div class="video-info">
                 <h3>${video.title}</h3>
                 <p>${video.views} • ${video.uploaded}</p>
@@ -55,4 +43,22 @@ if (videoGrid) {
         `;
         videoGrid.appendChild(card);
     });
+}
+
+// 4. Video Player System (Andar ka page)
+const urlParams = new URLSearchParams(window.location.search);
+const videoId = urlParams.get('id');
+
+if (videoId) {
+    const currentVideo = videos.find(v => v.id == videoId);
+    if (currentVideo) {
+        const mainPlayer = document.getElementById('main-player');
+        if (mainPlayer) mainPlayer.src = currentVideo.videoUrl;
+        
+        const titleElement = document.getElementById('video-title');
+        if (titleElement) titleElement.innerText = currentVideo.title;
+        
+        const statsElement = document.getElementById('video-stats');
+        if (statsElement) statsElement.innerText = `${currentVideo.views} • Uploaded ${currentVideo.uploaded}`;
+    }
 }
