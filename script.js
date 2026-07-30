@@ -1,10 +1,11 @@
-// 1. Aapka Asli Data (Koyi fake video nahi)
+// 1. Aapka Asli Data (Google Drive Preview Link)
 const videos = [
     {
         id: 1,
         title: "My First Original Video",
-        thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60", // Thumbnail image
-        videoUrl: "https://drive.google.com/uc?export=download&id=1e8Y2Cwky3FIoOsPPFcSkmp1Wjg7Bokrd", // Aapka Drive Link
+        thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60", 
+        // Yahan link ke aakhiri mein /preview laga diya hai
+        videoUrl: "https://drive.google.com/file/d/1e8Y2Cwky3FIoOsPPFcSkmp1Wjg7Bokrd/preview", 
         views: "1 View",
         uploaded: "Just now"
     }
@@ -28,7 +29,7 @@ if (menuBtn && sidebar) {
 const videoGrid = document.getElementById('video-grid');
 
 if (videoGrid) {
-    videoGrid.innerHTML = ''; // Purana kachra saaf
+    videoGrid.innerHTML = ''; 
     videos.forEach(video => {
         const card = document.createElement('div');
         card.className = 'video-card';
