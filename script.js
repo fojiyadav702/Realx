@@ -1,17 +1,16 @@
-// 1. Aapka Asli Data (Google Drive Preview Link)
+// 1. Aapka Asli Data (Streamtape Link)
 const videos = [
     {
         id: 1,
-        title: "My First Original Video",
+        title: "My First Private Video", // Aap yahan title apne hisaab se badal sakte ho
         thumbnail: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=500&q=60", 
-        // Yahan link ke aakhiri mein /preview laga diya hai
-        videoUrl: "https://drive.google.com/file/d/1e8Y2Cwky3FIoOsPPFcSkmp1Wjg7Bokrd/preview", 
+        videoUrl: "https://streamtape.com/e/dKeYKjo4Pgi0VW/", // Aapki photo wala link
         views: "1 View",
         uploaded: "Just now"
     }
 ];
 
-// 2. Sidebar Open/Close Code
+// 2. Sidebar Logic
 const menuBtn = document.getElementById('menu-btn');
 const sidebar = document.getElementById('sidebar');
 
