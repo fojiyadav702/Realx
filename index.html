@@ -7,32 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Navbar (Upar ki patti) -->
+    
+    <!-- 1. Header (Navbar) -->
     <header class="navbar">
         <div class="left-nav">
-            <!-- 3 Lines wala Menu Button -->
-            <button id="menu-btn" class="icon-btn" style="background: none; border: none; color: white; font-size: 20px; cursor: pointer;">☰</button>
-            
-            <!-- RealX Logo (Is par click karne se home page refresh hoga) -->
-            <a href="index.html" class="logo" style="text-decoration: none; color: white; font-size: 24px; font-weight: bold; margin-left: 15px;">RealX</a>
+            <button id="menu-btn" class="icon-btn">☰</button>
+            <a href="index.html" class="logo">RealX</a>
         </div>
-        
         <div class="search-bar">
-            <!-- Search Box -->
             <input type="text" id="search-input" placeholder="Search videos...">
         </div>
     </header>
 
-    <!-- Sidebar (Left side wala menu - isme ab sirf 2 item hain) -->
+    <!-- 2. Sidebar (Left Menu) -->
     <div id="sidebar" class="sidebar">
         <a href="index.html">🏠 Home</a>
         <a href="#">📁 Category</a>
     </div>
 
-    <!-- Main Content (Jahan saari videos dikhengi) -->
+    <!-- 3. Main Content (Video Grid) -->
     <main class="main-content">
         <div id="video-grid" class="video-grid">
-            <!-- Videos yahan script.js ke zariye apne aap aayengi -->
+            <!-- Videos yahan script.js se apne aap aayengi -->
         </div>
     </main>
 
