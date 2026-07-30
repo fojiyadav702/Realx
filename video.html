@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealX - Player</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <header class="navbar">
+        <div class="left-nav">
+            <button id="menu-btn" class="icon-btn">☰</button>
+            <a href="index.html" class="logo">RealX</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" id="search-input" placeholder="Search videos...">
+        </div>
+    </header>
+
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar">
+        <a href="index.html">🏠 Home</a>
+        <a href="#">📁 Category</a>
+    </div>
+
+    <!-- Main Player -->
+    <main class="player-container">
+        <div class="video-section">
+            <video id="main-player" controls autoplay>
+                <source src="" type="video/mp4">
+            </video>
+            <h2 id="video-title">Loading...</h2>
+            <p id="video-stats">Loading details...</p>
+        </div>
+        <hr class="divider">
+        <div class="recommendations-section">
+            <h3>Up Next</h3>
+            <div id="recommendations-list" class="r-list">
+                <!-- Abhi aur videos nahi hain toh ye khali rahega -->
+            </div>
+        </div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
