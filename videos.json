@@ -8,7 +8,7 @@
 </head>
 <body>
     
-    <!-- Header -->
+    <!-- Navbar -->
     <header class="navbar">
         <div class="left-nav">
             <button id="menu-btn" class="icon-btn">☰</button>
@@ -25,9 +25,8 @@
         <a href="#">📁 Category</a>
     </div>
 
-    <!-- Main Player Area -->
+    <!-- Main Player -->
     <main class="player-container">
-        <!-- Video Chalne Wali Jagah (Height 500px set hai) -->
         <div class="video-section">
             <video id="main-player" controls autoplay>
                 <source src="" type="video/mp4">
@@ -35,15 +34,11 @@
             <h2 id="video-title">Loading...</h2>
             <p id="video-stats">Loading details...</p>
         </div>
-
-        <!-- HR Line -->
         <hr class="divider">
-
-        <!-- Niche Up Next Videos -->
         <div class="recommendations-section">
             <h3>Up Next</h3>
             <div id="recommendations-list" class="r-list">
-                <!-- Javascript se baaki videos yahan aayengi -->
+                <!-- Abhi aur videos nahi hain toh ye khali rahega -->
             </div>
         </div>
     </main>
