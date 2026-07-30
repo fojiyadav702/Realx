@@ -1,99 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    background-color: #0f0f0f; /* Dark background */
-    color: white;
-    font-family: Arial, sans-serif;
-}
+body { background-color: #0f0f0f; color: white; font-family: Arial, sans-serif; }
 
-/* Header ki patti */
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: #0f0f0f;
-    border-bottom: 1px solid #303030;
-    height: 60px;
-}
+/* Navbar */
+.navbar { display: flex; justify-content: space-between; align-items: center; padding: 10px 20px; background-color: #0f0f0f; border-bottom: 1px solid #303030; height: 60px; position: fixed; width: 100%; top: 0; z-index: 1000; }
+.left-nav { display: flex; align-items: center; gap: 15px; }
+.icon-btn { background: none; border: none; color: white; font-size: 24px; cursor: pointer; }
+.logo { text-decoration: none; color: white; font-size: 24px; font-weight: bold; }
+.search-bar { flex: 1; max-width: 500px; margin: 0 20px; }
+#search-input { width: 100%; padding: 10px 15px; border-radius: 20px; border: 1px solid #303030; background-color: #121212; color: white; font-size: 16px; outline: none; }
 
-/* Logo aur Menu ka layout */
-.left-nav {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* Sidebar */
+.sidebar { height: 100%; width: 250px; position: fixed; z-index: 999; top: 60px; left: -250px; background-color: #0f0f0f; transition: 0.3s; padding-top: 20px; border-right: 1px solid #303030; }
+.sidebar a { padding: 15px 25px; text-decoration: none; font-size: 18px; color: white; display: block; transition: 0.2s; }
+.sidebar a:hover { background-color: #272727; border-radius: 10px; margin: 0 10px; }
 
-.icon-btn {
-    background: none;
-    border: none;
-    color: white;
-    font-size: 24px;
-    cursor: pointer;
-}
-
-.logo {
-    text-decoration: none;
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-}
-
-/* Search Box */
-.search-bar {
-    flex: 1;
-    max-width: 500px;
-    margin: 0 20px;
-}
-
-#search-input {
-    width: 100%;
-    padding: 10px 15px;
-    border-radius: 20px;
-    border: 1px solid #303030;
-    background-color: #121212;
-    color: white;
-    font-size: 16px;
-    outline: none;
-}
-/* Video Card Ka Design */
-.video-card {
-    cursor: pointer;
-    transition: transform 0.2s;
-}
-
-.video-card:hover {
-    transform: scale(1.02); /* Click karne se pehle thoda bada hoga */
-}
-
-.thumbnail {
-    width: 100%;
-    border-radius: 12px;
-    overflow: hidden;
-}
-
-.thumbnail img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    display: block;
-}
-
-.video-info {
-    margin-top: 10px;
-    color: white;
-}
-
-.video-info h3 {
-    font-size: 16px;
-    margin-bottom: 5px;
-}
-
-.video-info p {
-    color: #aaaaaa;
-    font-size: 14px;
-}
+/* Main Content & Video Grid */
+.main-content { margin-top: 80px; padding: 20px; }
+.video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+.video-card { cursor: pointer; transition: transform 0.2s; }
+.video-card:hover { transform: scale(1.02); }
+.thumbnail { width: 100%; border-radius: 12px; overflow: hidden; }
+.thumbnail img { width: 100%; height: 180px; object-fit: cover; display: block; }
+.video-info { margin-top: 10px; color: white; }
+.video-info h3 { font-size: 16px; margin-bottom: 5px; }
+.video-info p { color: #aaaaaa; font-size: 14px; }
