@@ -1,4 +1,18 @@
-// 1. Aapki Videos Ka Data (Google Drive Link ke sath)
+// 1. Sidebar Menu Button ka Code
+const menuBtn = document.getElementById('menu-btn');
+const sidebar = document.getElementById('sidebar');
+
+if (menuBtn && sidebar) {
+    menuBtn.addEventListener('click', () => {
+        if (sidebar.style.left === '0px') {
+            sidebar.style.left = '-250px';
+        } else {
+            sidebar.style.left = '0px';
+        }
+    });
+}
+
+// 2. Videos ka Data
 const videos = [
     {
         id: 1,
@@ -18,7 +32,7 @@ const videos = [
     }
 ];
 
-// 2. Videos ko Home Page par dikhane ka code
+// 3. Videos ko Grid mein lagane ka Code
 const videoGrid = document.getElementById('video-grid');
 
 if (videoGrid) {
@@ -26,7 +40,6 @@ if (videoGrid) {
         const card = document.createElement('div');
         card.className = 'video-card';
         
-        // Video par click karne se agle page par jayega
         card.onclick = () => {
             window.location.href = `video.html?id=${video.id}`;
         };
