@@ -1,142 +1,233 @@
-* { box-sizing: border-box; margin: 0; padding: 0; }
-:root{
-  --bg:#0f0f10;
-  --panel:#151516;
-  --card:#171718;
-  --border:#2a2a2a;
-  --text:#ffffff;
-  --muted:#a8a8a8;
-  --accent:#ff2d55;
+/* ==================================
+   Basic Settings & Dark Theme
+   ================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-body{
-  font-family: Arial, sans-serif;
-  background: var(--bg);
-  color: var(--text);
+
+body {
+    background-color: #0f0f0f; /* YouTube jaisa dark background */
+    color: white;
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
-header{
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: rgba(15,15,16,.96);
-  backdrop-filter: blur(10px);
-  border-bottom: 1px solid var(--border);
-  padding: 12px;
-  display: flex;
-  align-items: center;
-  gap: 10px;
+
+/* ==================================
+   Navbar (Upar ki patti)
+   ================================== */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #0f0f0f;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    z-index: 1000;
 }
-.menu{
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  display: grid; place-items: center;
-  font-size: 22px;
-  flex: 0 0 auto;
-  color: var(--text);
+
+.left-nav {
+    display: flex;
+    align-items: center;
 }
-.brand{
-  font-size: 22px;
-  font-weight: 800;
-  letter-spacing: .3px;
-  flex: 0 0 auto;
-  white-space: nowrap;
+
+.search-bar {
+    flex: 1;
+    max-width: 600px;
+    margin: 0 20px;
 }
-.search-wrap{
-  flex: 1;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  min-width: 0;
+
+#search-input {
+    width: 100%;
+    padding: 10px 15px;
+    border-radius: 20px;
+    border: 1px solid #303030;
+    background-color: #121212;
+    color: white;
+    font-size: 16px;
+    outline: none;
 }
-.search-wrap input{
-  width: 100%;
-  min-width: 0;
-  padding: 13px 16px;
-  border: 1px solid var(--border);
-  border-radius: 999px;
-  background: var(--panel);
-  color: var(--text);
-  outline: none;
-  font-size: 15px;
+
+#search-input:focus {
+    border: 1px solid #1c62b9; /* Search karte waqt blue border */
 }
-.search-wrap button{
-  padding: 13px 18px;
-  border: none;
-  border-radius: 999px;
-  background: var(--accent);
-  color: #fff;
-  font-weight: 800;
-  font-size: 15px;
-  cursor: pointer;
+
+/* ==================================
+   Sidebar (Left Menu)
+   ================================== */
+.sidebar {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 999;
+    top: 60px; /* Navbar ke niche se shuru */
+    left: -250px; /* Shuru mein chhupa hua rahega */
+    background-color: #0f0f0f;
+    overflow-x: hidden;
+    transition: 0.3s; /* Smooth animation */
+    padding-top: 20px;
 }
-main{
-  padding: 12px;
-  max-width: 1200px;
-  margin: 0 auto;
+
+.sidebar a {
+    padding: 15px 25px;
+    text-decoration: none;
+    font-size: 18px;
+    color: white;
+    display: block;
+    transition: 0.2s;
 }
-.grid{
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
+
+.sidebar a:hover {
+    background-color: #272727;
+    border-radius: 10px;
+    margin: 0 10px;
 }
-.card{
-  display: block;
-  text-decoration: none;
-  color: inherit;
-  background: var(--card);
-  border: 1px solid var(--border);
-  border-radius: 18px;
-  overflow: hidden;
-  min-width: 0;
+
+/* ==================================
+   Main Content & Video Grid
+   ================================== */
+.main-content {
+    margin-top: 80px; /* Navbar ke niche jagah */
+    padding: 20px;
+    transition: margin-left .3s;
 }
-.thumb{
-  aspect-ratio: 16 / 9;
-  background: linear-gradient(135deg, #3a3a40 0%, #232327 45%, #19191c 100%);
-  position: relative;
+
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
 }
-.thumb img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.video-card {
+    cursor: pointer;
+    transition: transform 0.2s;
 }
-.duration{
-  position: absolute;
-  right: 10px;
-  bottom: 10px;
-  background: rgba(0,0,0,.8);
-  color: #fff;
-  font-size: 12px;
-  padding: 5px 8px;
-  border-radius: 8px;
-  font-weight: 700;
-  z-index: 2;
+
+.video-card:hover {
+    transform: scale(1.02);
 }
-.content{
-  padding: 10px 10px 12px;
+
+.thumbnail {
+    position: relative;
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
 }
-.title{
-  font-size: 15px;
-  font-weight: 800;
-  line-height: 1.25;
-  margin-bottom: 6px;
-  display: -webkit-box;
-  -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
+
+.thumbnail img {
+    width: 100%;
+    height: 170px;
+    object-fit: cover;
+    display: block;
 }
-.meta{
-  font-size: 13px;
-  color: var(--muted);
-  line-height: 1.3;
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
 }
-.hidden{ display: none !important; }
-@media (min-width: 800px){
-  .grid{ grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.video-info {
+    margin-top: 10px;
 }
-@media (max-width: 480px){
-  .brand{ font-size: 20px; }
-  .search-wrap button{ padding: 13px 14px; }
-  .title{ font-size: 14px; }
+
+.video-info h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.video-info p {
+    color: #aaaaaa;
+    font-size: 14px;
+}
+
+/* ==================================
+   Video Player Page (video.html ke liye)
+   ================================== */
+.player-container {
+    margin-top: 70px;
+    padding: 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.video-section video {
+    width: 100%;
+    border-radius: 12px;
+    background: black;
+    max-height: 500px;
+    outline: none;
+}
+
+.video-title-main {
+    margin-top: 15px;
+    font-size: 22px;
+}
+
+.video-stats-main {
+    color: #aaaaaa;
+    font-size: 14px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+
+.recommendations-section h3 {
+    margin-bottom: 15px;
+}
+
+.r-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.recommend-card {
+    display: flex;
+    gap: 15px;
+    cursor: pointer;
+}
+
+.recommend-card img {
+    width: 160px;
+    height: 90px;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.r-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.r-info h4 {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.r-info p {
+    color: #aaaaaa;
+    font-size: 12px;
+}
+
+/* Mobile Screen Adjustments */
+@media (max-width: 600px) {
+    .recommend-card img {
+        width: 120px;
+        height: 70px;
+    }
 }
